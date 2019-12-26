@@ -1,0 +1,36 @@
+{% extends "account/main.html" %}
+{% load staticfiles %}
+
+<link href="{% static 'accounts/css/account_details.css' %}" rel="stylesheet">
+
+{% block content %}  
+<!-- Page Content -->
+<title>ГлубокО - Аккаунт пользователя {{object.user.username}}</title>
+
+<body>
+    <script type="text/javascript" src="{% static 'blog/js/fullscreen.js' %}"></script>
+    <div class="fullscreen-div">
+        <div class=account-details>
+            <h1 class="text-left">{{object.user.username}}</h1>
+        </div>
+        <div class="container">
+            <div class="row"> 
+                <div class="col-2">
+                    <img class="img-fluid" src="{{object.photo.url}}" alt="">
+                </div>
+                <div class="col-8">
+                    <h3 class="text-left">{{object.fullname}}</h3>
+                    <h5 class="text-left">О себе:</h5>
+                    <p class="text-left">{{object.info}}</p>
+                </div>    
+            </div>
+            <p></p>
+        <!-- container -->
+        </div>
+    </div>    
+</body>
+{% endblock %}
+
+
+
+

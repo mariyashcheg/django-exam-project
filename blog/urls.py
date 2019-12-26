@@ -10,5 +10,9 @@ urlpatterns = [
     url(r'^posts/$', PostListView.as_view(), name='post-list'),
     url(r'^posts/(?P<pk>[0-9]+)/$', PostDetailView.as_view(), name='post-details'),
     url(r'^post/new/$', PostCreateView.as_view(), name='post-create'),
+    url(r'^post/(?P<pk>\d+)/edit/$', PostUpdateView.as_view(), name='post-edit'),
+    url(r'^post/(?P<pk>\d+)/delete/$', PostDeleteView.as_view(), name='post-delete'),
+    url(r'^comment/(?P<pk>\d+)/edit/$', CommentUpdateView.as_view(), name='comment-edit'),
+    url(r'^comment/(?P<pk>\d+)/delete/$', CommentDeleteView.as_view(), name='post-delete')
     # url(r'^posts/(?P<post_id>[0-9]+)/comments/$', CommentListView.as_view(), name='comment-list')
 ]

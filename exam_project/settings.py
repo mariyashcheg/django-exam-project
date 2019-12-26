@@ -127,3 +127,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'blog/media/')
 
 LOGIN_REDIRECT_URL =  '/blogs/'
 LOGOUT_REDIRECT_URL = '/'
+
+LOGIN_URL = '/accounts/login/'

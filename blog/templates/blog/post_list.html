@@ -1,0 +1,49 @@
+{% extends "blog/main.html" %}
+{% load staticfiles %}
+
+<link href="{% static 'blog/css/post_list.css' %}" rel="stylesheet">
+
+{% block content %}
+<!-- Page Content -->
+<title>ГлубокО - Посты</title>
+
+<div class=posts>
+    <h1 class="text-center">Посты</h1>
+    <div class="container">
+        <!-- Page Features -->
+        <div class="row text-left">
+            <div class="col-12 text-right">
+                <a href="/post/new/">Написать пост</a>
+                <p></p>
+            </div>
+            {% for post in post_list %}
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-7">
+                                <h4 class="card-title"><a href="{{post.pk}}">{{post.title}}</a></h4> 
+                            </div>
+                            <div class="col-5 text-right">
+                                <p class="card-text text-white-75">
+                                <small>{{post.create_date}} @ {{post.blog}}</small></p>
+                            </div>
+                        </div>                        
+                        <p class="card-text">{{post.text}}</p>
+                        <!-- <p class="card-text"><small>{{post.author}}</small></p> -->
+                    </div>
+                    <!-- <div class="card-footer">
+                        <a href="/posts/{{post.pk}}/comments/" class="card-link">Комментарии</a>
+                    </div> -->
+                </div>
+                <br>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+

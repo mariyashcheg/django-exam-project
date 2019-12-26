@@ -1,0 +1,14 @@
+{% extends 'registration/main.html' %}
+{% block registration %}
+<div  class="col-9">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Создать аккаунт</h4>
+            <form method="post"> {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Зарегистрироваться</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

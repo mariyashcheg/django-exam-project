@@ -1,0 +1,57 @@
+{% extends "blog/main.html" %}
+{% load staticfiles %}
+
+<link href="{% static 'blog/css/blog_details.css' %}" rel="stylesheet">
+
+{% block content %}  
+<!-- Page Content -->
+<title>ГлубокО - {{object.title}}</title>
+
+<div class=blog-details>
+    <h1 class="text-center">{{object.title}}</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <img class="img-fluid" src="{{object.image.url}}" alt="">
+            </div>  
+            <div class="col-md-4">
+                <h3 class="my-3">Описание раздела</h3>
+                <p>{{object.text}}</p>
+                <h3 class="my-3">Топ участники</h3>
+                <ul>
+                    <li>Lorem Ipsum</li>
+                    <li>Dolor Sit Amet</li>
+                    <li>Consectetur</li>
+                    <li>Adipiscing Elit</li>
+                </ul>
+            </div>
+        </div>
+    </div>    
+    <div class="container">
+        <h3 class="text-center">Популярные посты</h3>
+        <div class="row text-left">
+            {% for post in object.get_top3_posts %}
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h4 class="card-title">{{post.title}}</h4>
+                        <!-- <p class="card-text">{{post.author}}</p> -->
+                        {{post.create_date}}
+                        <a href="/posts/{{post.pk}}" class="btn btn-primary">Читать</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class='col-12 text-center'>
+                <p></p>
+                <a href="/posts/">Все посты</a>
+                <p></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+

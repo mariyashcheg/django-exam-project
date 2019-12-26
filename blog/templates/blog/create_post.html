@@ -1,0 +1,23 @@
+{% extends "blog/main.html" %}
+<!-- {% load staticfiles %} -->
+
+<!-- <form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Опубликовать">
+</form> -->
+
+{% block content %}  
+{{ form.non_field_errors }}
+<form method="post">{% csrf_token %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Опубликовать</button>
+                <p></p>
+                <!-- <input type="submit" value="Опубликовать"> -->
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

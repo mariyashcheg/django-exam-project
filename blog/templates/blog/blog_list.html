@@ -1,0 +1,37 @@
+{% extends "blog/main.html" %}
+{% load staticfiles %}
+
+<link href="{% static 'blog/css/blog_list.css' %}" rel="stylesheet">
+<!-- <link href="../../static/blog/css/blog_details.css" rel="stylesheet"> -->
+
+{% block content %}
+<!-- Page Content -->
+<title>ГлубокО - Разделы</title>
+
+<div class=blog>
+    <h1 class="text-center">Разделы</h1>
+    <div class="container">
+        <!-- Page Features -->
+        <div class="row text-center">
+            {% for blog in blog_list %}
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="card h-100">
+                    <img class="card-img-top" src="{{blog.image.url}}" alt="">
+                    <div class="card-body">
+                        <h4 class="card-title">{{blog.title}}</h4>
+                        <p class="card-text">{{blog.text}}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="/blogs/{{blog.pk}}" class="card-link">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+

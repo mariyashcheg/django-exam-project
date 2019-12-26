@@ -1,0 +1,62 @@
+{% extends "blog/main.html" %}
+{% load staticfiles %}
+
+<link href="{% static 'blog/css/post_details.css' %}" rel="stylesheet">
+
+{% block content %}  
+<!-- Page Content -->
+<title>ГлубокО - {{object.title}}</title>
+
+<body>
+    <script type="text/javascript" src="{% static 'blog/js/post_details.js' %}"></script>
+    <div class=post-details>
+        <h1 class="text-left">{{object.title}}</h1>
+        <div class="container">
+            <div class="row"> 
+                <div class="col-lg-7 col-sm-12">
+                    <h5 class="text-left">{{object.author}}</h5>
+                </div>
+                <div class="col-lg-5 col-sm-12 text-right">
+                    <p class="text-white-75">{{object.create_date}} @ 
+                        <a href="/blogs/{{object.blog.pk}}">{{object.blog}}</a></p>
+                </div>    
+            </div>
+            <hr class="divider my-4">
+            <div class="row"> 
+                <div class="col-12">
+                    <p class="text-left">{{object.text}}</p>
+                </div>    
+            </div>
+            <hr class="divider my-4">
+            <div class="text-left">
+                <h5>Комментарии</h5>
+                {% for comment in object.comment.all %}
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text text-white-75">
+                            <small>{{comment.author}} {{comment.create_date}}</small></p>
+                        <p>{{comment.text}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+                <form method="post">{% csrf_token %}
+                    {% if user.is_authenticated %}
+                    <div class="card">
+                        <div class="card-body">        
+                            <p><input type="text" class="form-control" placeholder='Добавить комментарий' name="text"></p>
+                            <button type="submit" class="btn btn-primary">Добавить</button>
+                        </div>
+                    </div>
+                    {% endif %}
+                </form>
+                <p></p>
+            </div>
+        <!-- container -->
+        </div>
+    </div>    
+</body>
+{% endblock %}
+
+
+
+

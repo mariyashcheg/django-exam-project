@@ -1,0 +1,18 @@
+.blog-details h1{
+    color: #ffffff;
+    padding-bottom: 10px;
+    background-color: #4682B4;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center; 
+}
+.blog-details a{
+    align-self: center;
+}
+.blog-details .img-fluid{
+    height: 380px;
+    width: 1920px;
+}
+/* .blog-details .all_posts_link {
+    padding-bottom: 25px;
+} */
